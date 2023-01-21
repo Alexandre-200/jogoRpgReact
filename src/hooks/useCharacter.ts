@@ -1,19 +1,21 @@
 import { useState } from "react";
 
 export const useCharacter = () => {
-  const [pos, setPos] = useState({ x: 3, y: 5 });
+  const [pos, setPos] = useState({ x: 3, y: 5, p: 0 });
 
   const moveLeft = () => {
     setPos((pos) => ({
       x: pos.x - 1,
       y: pos.y,
+      p: 1,
     }));
   };
 
   const moveRight = () => {
     setPos((pos) => ({
-      x: (pos.x = 1),
+      x: pos.x + 1,
       y: pos.y,
+      p: 2,
     }));
   };
 
@@ -21,6 +23,7 @@ export const useCharacter = () => {
     setPos((pos) => ({
       x: pos.x,
       y: pos.y + 1,
+      p: 0,
     }));
   };
 
@@ -28,12 +31,14 @@ export const useCharacter = () => {
     setPos((pos) => ({
       x: pos.x,
       y: pos.y - 1,
+      p: 3,
     }));
   };
 
   return {
     x: pos.x,
     y: pos.y,
+    p: pos.p,
     moveLeft,
     moveRight,
     moveDown,

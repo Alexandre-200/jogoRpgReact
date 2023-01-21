@@ -14,15 +14,19 @@ const App = () => {
     switch (e.code) {
       case "KeyA":
       case "ArrowLeft":
+        char.moveLeft();
         break;
       case "KeyW":
       case "ArrowUp":
+        char.moveUp();
         break;
       case "KeyD":
       case "ArrowRight":
+        char.moveRight();
         break;
       case "KeyS":
       case "ArrowDown":
+        char.moveDown();
         break;
     }
   };
@@ -30,7 +34,7 @@ const App = () => {
   return (
     <C.Container>
       <C.Map>
-        <Character x={char.x} y={char.y}></Character>
+        <Character x={char.x} y={char.y} p={char.p}></Character>
       </C.Map>
     </C.Container>
   );
